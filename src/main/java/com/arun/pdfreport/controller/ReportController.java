@@ -26,7 +26,7 @@ public class ReportController {
 
     @GetMapping("/generatePdf")
     public ResponseEntity generatePdfReport() throws JRException, IOException {
-        ClassPathResource reportResource = new ClassPathResource("jasper2/Pricing_summary_report.jrxml");
+        ClassPathResource reportResource = new ClassPathResource("jasper2/Main_report.jrxml");
         InputStream reportStream = reportResource.getInputStream();
         // Compile jrxml to Jasper
         JasperReport report = JasperCompileManager.compileReport(reportStream);
@@ -37,7 +37,7 @@ public class ReportController {
         JasperReport subReport = JasperCompileManager.compileReport(subReportStream);
         // Prepare the parameters for the main report
         Map<String, Object> parameters = new HashMap<>();
-        parameters.put("AccountNumber", "SG091212"); // Example portfolio number
+        parameters.put("UserNo", "u123"); // Example portfolio number
         
         parameters.put("subReport", subReport);
         parameters.put("subReportParameter", getSubReportParameter());
@@ -62,11 +62,9 @@ public class ReportController {
 
     private static JRBeanCollectionDataSource getSubDataSource() {
         List<Fee> dataList = new ArrayList<>();
-        // Fee fee1 = new Fee("Feetype1", "1000", "1002");
-        // dataList.add(fee1);
-        dataList.add(new Fee("Management Fee", "100.00", "90.00"));
-        dataList.add(new Fee("Performance Fee", "200.00", "180.00"));
-        dataList.add(new Fee("Administration Fee", "50.00", "45.00"));
+        dataList.add(new Fee("Apple", "100.00", "90.00"));
+        dataList.add(new Fee("Orange", "200.00", "180.00"));
+        dataList.add(new Fee("Banana", "50.00", "45.00"));
         JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(dataList);
         return dataSource;
     }
@@ -74,7 +72,7 @@ public class ReportController {
     private static Map getSubReportParameter() {
         Map<String, Object> subParameter = new HashMap<>();
         subParameter.put("subReportDataSet", getSubDataSource());
-        subParameter.put("PortfolioNumber", "SG091212-01");
+        subParameter.put("SubUserNo", "u123-01");
         return subParameter;
     }
 }

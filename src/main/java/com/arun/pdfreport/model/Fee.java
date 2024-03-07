@@ -8,9 +8,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Fee {
-    private String feeType;
-    private String listPrice;
-    private String effectivePrice;
+    private String item;
+    private String costPrice;
+    private String sellPrice;
 
 }
 

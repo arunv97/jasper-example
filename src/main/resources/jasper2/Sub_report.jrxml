@@ -33,12 +33,12 @@
 		<queryString>
 			<![CDATA[]]>
 		</queryString>
-		<field name="feeType" class="java.lang.String"/>
-		<field name="listPrice" class="java.lang.String"/>
-		<field name="effectivePrice" class="java.lang.String"/>
+		<field name="item" class="java.lang.String"/>
+		<field name="costPrice" class="java.lang.String"/>
+		<field name="sellPrice" class="java.lang.String"/>
 	</subDataset>
 	<parameter name="subReportDataSet" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
-	<parameter name="PortfolioNumber" class="java.lang.String"/>
+	<parameter name="SubUserNo" class="java.lang.String"/>
 	<queryString>
 		<![CDATA[]]>
 	</queryString>
@@ -48,7 +48,7 @@
 				<reportElement x="0" y="0" width="191" height="21" uuid="200956a7-aedc-4d7b-bceb-0db7046f60d7"/>
 				
 				<textElement/>
-    <textFieldExpression><![CDATA["Portfolio Number:"+$P{PortfolioNumber}]]></textFieldExpression>
+    <textFieldExpression><![CDATA["Sub User Number:"+$P{SubUserNo}]]></textFieldExpression>
 			</textField>
 			<componentElement>
 				<reportElement x="0" y="36" width="555" height="200" uuid="27d8c475-8058-45d4-968b-1d9200db1497">
@@ -67,13 +67,13 @@
 							<staticText>
 								<reportElement x="0" y="0" width="100" height="30" uuid="eb8276a1-4bc3-46ab-82d6-0204db3a6800"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle"/>
-								<text><![CDATA[Fee Type]]></text>
+								<text><![CDATA[Item]]></text>
 							</staticText>
 						</jr:columnHeader>
 						<jr:detailCell style="Table_TD" height="30">
 							<textField>
 								<reportElement x="0" y="0" width="100" height="30" uuid="f08eb4ff-7bf3-46a2-a501-819ec65ea2b9"/>
-								<textFieldExpression><![CDATA[$F{feeType}]]></textFieldExpression>
+								<textFieldExpression><![CDATA[$F{item}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
 					</jr:column>
@@ -83,13 +83,13 @@
 							<staticText>
 								<reportElement x="0" y="0" width="200" height="30" uuid="e3cb0d4c-95a9-4e17-8437-71038486f0fa"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle"/>
-								<text><![CDATA[List Price]]></text>
+								<text><![CDATA[Cost Price]]></text>
 							</staticText>
 						</jr:columnHeader>
 						<jr:detailCell style="Table_TD" height="30">
 							<textField>
 								<reportElement x="0" y="0" width="200" height="30" uuid="bd3d8da1-073d-4c80-a848-369a455c2e17"/>
-								<textFieldExpression><![CDATA[$F{listPrice}]]></textFieldExpression>
+								<textFieldExpression><![CDATA[$F{costPrice}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
 					</jr:column>
@@ -99,13 +99,13 @@
 							<staticText>
 								<reportElement x="0" y="0" width="200" height="30" uuid="f7ff1364-f014-4f82-9155-9b01439e4373"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle"/>
-								<text><![CDATA[Effective Price]]></text>
+								<text><![CDATA[Sell Price]]></text>
 							</staticText>
 						</jr:columnHeader>
 						<jr:detailCell style="Table_TD" height="30">
 							<textField>
 								<reportElement x="0" y="0" width="200" height="30" uuid="2fdaabf6-1044-4053-a9a8-5d3c565d6883"/>
-								<textFieldExpression><![CDATA[$F{effectivePrice}]]></textFieldExpression>
+								<textFieldExpression><![CDATA[$F{sellPrice}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
 					</jr:column>
